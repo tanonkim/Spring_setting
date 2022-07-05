@@ -51,4 +51,15 @@ public class UserDaoService {
         }
         return null;
     }
+
+    public User modify(User user, String name) {
+        for (User changeUser : users) {
+            if (changeUser.getId() == user.getId()) {
+                changeUser.setName(name);
+                return changeUser;
+            }
+        }
+        return null;
+    }
+
 }

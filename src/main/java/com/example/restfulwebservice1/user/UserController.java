@@ -50,4 +50,14 @@ public class UserController {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
         }
     }
+
+    @PutMapping("/users/{name}")
+    public ResponseEntity<User> modifyUser(@RequestBody User user, @PathVariable String name) {
+        User savedUser = service.modify(user, name);
+
+        if (savedUser == null) {
+            throw new UserNotFoundException(String.format("ID[%s] not found", user.getId()));
+        }
+        return ResponseEntity.noContent().build();
+    }
 }
