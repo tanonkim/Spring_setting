@@ -34,7 +34,8 @@ public class AdminUserController {
         return mapping;
     }
 
-    @GetMapping("/v1/users/{id}")
+    //@GetMapping("/v1/users/{id}")  //http://127.0.0.1:8088/admin/v1/users/1
+    @GetMapping(value = "/users/{id}/", params = "version=1") //http://127.0.0.1:8088/admin/users/1/?version=1
     public MappingJacksonValue retrieveUserV1(@PathVariable int id) {
         User user = service.findOne(id);
 
@@ -53,7 +54,8 @@ public class AdminUserController {
         return mapping;
     }
 
-    @GetMapping("/v2/users/{id}")
+    //@GetMapping("/v2/users/{id}")  //http://127.0.0.1:8088/admin/v2/users/1
+    @GetMapping(value = "/users/{id}/", params = "version=2") //http://127.0.0.1:8088/admin/users/1/?version=2
     public MappingJacksonValue retrieveUserV2(@PathVariable int id) {
         User user = service.findOne(id);
 
