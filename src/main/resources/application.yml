@@ -5,17 +5,23 @@ logging:
   level:
     org.springframework: DEBUG
 
-Spring:
-  messages:
-    basename: messages
+
 
 spring:
+  messages:
+    basename: messages
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  security:
+    user:
+      name: username
+      password: robbins4bos
+
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+
