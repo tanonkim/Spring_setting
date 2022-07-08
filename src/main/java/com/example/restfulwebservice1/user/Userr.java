@@ -22,7 +22,7 @@ import java.util.Date;
 @Entity
 public class Userr {
     @Id
-    @GeneratedValue
+    @GeneratedValue // id 자동 생성
     private Integer id;
 
     @Size(min = 2, message = "Name은 2글자 이상 입력해주세요")
