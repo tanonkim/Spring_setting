@@ -22,20 +22,20 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<User> retrieveAllUsers() {
+    public List<Userr> retrieveAllUsers() {
         return service.findAll();
     }
 
     @GetMapping("/users/{id}")
-    public EntityModel<User> retrieveUser(@PathVariable int id) {
-        User user = service.findOne(id);
+    public EntityModel<Userr> retrieveUser(@PathVariable int id) {
+        Userr user = service.findOne(id);
 
         if (user == null) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
         }
 
         //HATEOAS
-        EntityModel<User> model = EntityModel.of(user);
+        EntityModel<Userr> model = EntityModel.of(user);
         WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
 
         model.add(linkTo.withRel("all-users"));
@@ -44,8 +44,8 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
-        User savedUser = service.save(user);
+    public ResponseEntity<Userr> createUser(@Valid @RequestBody Userr user) {
+        Userr savedUser = service.save(user);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
@@ -57,7 +57,7 @@ public class UserController {
 
     @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable int id) {
-        User user = service.deleteById(id);
+        Userr user = service.deleteById(id);
 
         if (user == null) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
@@ -65,8 +65,8 @@ public class UserController {
     }
 
     @PutMapping("/users/{name}")
-    public ResponseEntity<User> modifyUser(@RequestBody User user, @PathVariable String name) {
-        User savedUser = service.modify(user, name);
+    public ResponseEntity<Userr> modifyUser(@RequestBody Userr user, @PathVariable String name) {
+        Userr savedUser = service.modify(user, name);
 
         if (savedUser == null) {
             throw new UserNotFoundException(String.format("ID[%s] not found", user.getId()));

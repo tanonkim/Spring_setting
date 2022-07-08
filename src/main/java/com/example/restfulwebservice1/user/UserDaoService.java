@@ -9,21 +9,21 @@ import java.util.List;
 
 @Service
 public class UserDaoService {
-    private static List<User> users = new ArrayList<>();
+    private static List<Userr> users = new ArrayList<>();
 
     private static int userCount = 3;
 
     static {
-        users.add(new User(1, "Coco", new Date(), "password1", "991102-1234567"));
-        users.add(new User(2, "David", new Date(), "password2", "991103-1234568"));
-        users.add(new User(3, "Cheese", new Date(), "password3", "991104-1234569"));
+        users.add(new Userr(1, "Coco", new Date(), "password1", "991102-1234567"));
+        users.add(new Userr(2, "David", new Date(), "password2", "991103-1234568"));
+        users.add(new Userr(3, "Cheese", new Date(), "password3", "991104-1234569"));
     }
 
-    public List<User> findAll() {
+    public List<Userr> findAll() {
         return users;
     }
 
-    public User save(User user) {
+    public Userr save(Userr user) {
         if (user.getId() == null) {
             user.setId(++userCount);
         }
@@ -31,8 +31,8 @@ public class UserDaoService {
         return user;
     }
 
-    public User findOne(int id) {
-        for (User user : users) {
+    public Userr findOne(int id) {
+        for (Userr user : users) {
             if (user.getId() == id) {
                 return user;
             }
@@ -40,10 +40,10 @@ public class UserDaoService {
         return null;
     }
 
-    public User deleteById(int id) {
-        Iterator<User> iterator = users.iterator();
+    public Userr deleteById(int id) {
+        Iterator<Userr> iterator = users.iterator();
         while (iterator.hasNext()) {
-            User user = iterator.next();
+            Userr user = iterator.next();
             if (user.getId() == id) {
                 iterator.remove();
                 return user;
@@ -52,8 +52,8 @@ public class UserDaoService {
         return null;
     }
 
-    public User modify(User user, String name) {
-        for (User changeUser : users) {
+    public Userr modify(Userr user, String name) {
+        for (Userr changeUser : users) {
             if (changeUser.getId() == user.getId()) {
                 changeUser.setName(name);
                 return changeUser;

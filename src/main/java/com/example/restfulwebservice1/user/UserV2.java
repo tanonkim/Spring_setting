@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 //@JsonIgnoreProperties(value = {"password", "ssn"})
 @JsonFilter("UserInfoV2")
-public class UserV2 extends User {
+public class UserV2 extends Userr {
     private String grade;
 
 }

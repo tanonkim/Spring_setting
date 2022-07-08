@@ -19,11 +19,12 @@ spring:
       password: robbins4bos
   datasource:
     url: jdbc:h2:mem:testdb
-    jpa:
-      show-sql: true
   h2:
     console:
       enabled: true
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
 
 management:
   endpoints:

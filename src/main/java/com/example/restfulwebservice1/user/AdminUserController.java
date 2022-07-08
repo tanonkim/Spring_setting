@@ -23,7 +23,7 @@ public class AdminUserController {
 
     @GetMapping("/users")
     public MappingJacksonValue retrieveAllUsers() {
-        List<User> users = service.findAll();
+        List<Userr> users = service.findAll();
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter
                 .filterOutAllExcept("id", "name", "joinDate", "password", "ssn");
 
@@ -37,7 +37,7 @@ public class AdminUserController {
     //@GetMapping("/v1/users/{id}")  //http://127.0.0.1:8088/admin/v1/users/1
     @GetMapping(value = "/users/{id}", headers = "X-API-VERSION=1")
     public MappingJacksonValue retrieveUserV1(@PathVariable int id) {
-        User user = service.findOne(id);
+        Userr user = service.findOne(id);
 
         if (user == null) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
@@ -57,7 +57,7 @@ public class AdminUserController {
     //@GetMapping("/v2/users/{id}")  //http://127.0.0.1:8088/admin/v2/users/1
     @GetMapping(value = "/users/{id}", headers = "X-API-VERSION=2")
     public MappingJacksonValue retrieveUserV2(@PathVariable int id) {
-        User user = service.findOne(id);
+        Userr user = service.findOne(id);
 
         if (user == null) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
