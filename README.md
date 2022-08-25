@@ -1,4 +1,4 @@
-# Spring Restful Web
+## Spring Restful Web
 
 ### 🔔 기술 블로그
 * [RESTful Web Service with Spring Boot _ 기초](https://velog.io/@tritny6516/Spring-RESTful-Web)
@@ -9,7 +9,10 @@
 
 
 
-### 🚀 개발 인원 및 기간
+<br><br>
+
+
+## 🚀 개발 인원 및 기간
 * 개발 기간 : 2022/07/04 ~ 2022/07/08 (4일)
 * 개인프로젝트
     * Back-end   
